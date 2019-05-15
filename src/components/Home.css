@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.background { 
+  text-align: center;
+  /* The image used */
+  background-image: url("/images/medical-center.jpg");
+  /* Full height */
+  height: 80vh; 
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background > h1 {
+  font-family: 'Tangerine', cursive;
+  font-size: 5em;
+  color:#F35558;
+  text-align: initial;
+  padding-left: 50px;
+  padding-top: -30px;
+}
+
+.health {
+  width:35vh;
+  display: flex;
+  margin-left: 150px;
+}
+
+.Home > footer {
+  padding-top: 10vh;
+}
+
+.PatientsCare{
+  font-family: 'Cabin Sketch', cursive;
+  color:#F35558;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 2em;
+}
+
+.SocialMedia {
+  padding-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SocialMedia > img {
+  width: 45px;
+  padding-left: 2vh;
+}
+
+.signature {
+  text-align: right;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 1em;
+  padding-right: 1vh;
+}

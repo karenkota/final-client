@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.nav-style {
+  font-family: 'Scada', sans-serif;
+  font-size: 1.2em;
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu {
+  margin-top: 3px;
+  margin-right: 20px;
+  height: 9vh;
+}
+
+.logo {
+  height: 10vh;
+  z-index: 10;
+}
+
+.sidebar {
+  text-decoration: none;
+  display: flex;
+  padding-left: 50%;
+}
+
+.sidebar > a {
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 8px;
+  color: #4BAAD3;
+}
