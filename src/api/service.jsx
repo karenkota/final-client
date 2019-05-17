@@ -15,7 +15,7 @@ export default {
   handleUpload (theFile) {
     return service.post('/upload', theFile)
       .then(res => res.data)
-      .catch(errorHandler);
+      .catch(errorHandler => console.log(errorHandler));
   },
 
   saveNewMedicalRecorder (newMedicalRecorder) { 

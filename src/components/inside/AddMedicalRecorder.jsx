@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './AddMedicalRecorder.css'
 import service from '../../api/service';
+// import PatientRecorder from "./PatientRecorder";
 
 class AddMedicalRecorder extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class AddMedicalRecorder extends Component {
     service.handleUpload(uploadData)
     .then(response => {
         this.setState({ imageUrl: response.secure_url });
+        console.log(response.secure_url)
       })
       .catch(err => {
         console.log("Error while uploading the file: ", err);
@@ -59,7 +61,7 @@ class AddMedicalRecorder extends Component {
     return (
       <sections className="medical-area">
         <div className="search-patient">
-          Search
+          
         </div>
         <div className="form-new-patient">
           <h2>New Patient</h2>
