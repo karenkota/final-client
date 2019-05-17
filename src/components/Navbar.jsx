@@ -27,45 +27,28 @@ class Navbar extends Component {
   }
 
   toogleSidebar() {
-    console.log('chamou o sidebar', this.state.sideBar)
     this.setState({
       sideBar: !this.state.sideBar,
     });
   }
   
-
   render(){
     const sideBar = (
       <div className="sidebar">
-        <Link to='/' style={{ textDecoration: 'none' }}>Logout</Link>
+        <Link to='/' style={{ textDecoration: 'none' }}><p onClick={() => this.logoutUser()}>Logout</p></Link>
         <Link to='/login' style={{ textDecoration: 'none' }}>Login</Link>
         <Link to='/contacts' style={{ textDecoration: 'none' }}>Contacts</Link>
         <Link to='/sac' style={{ textDecoration: 'none' }}>SAC</Link>
       </div>
     );
 
-    if(this.state.loggedInUser){
-      return(
-        <nav className="nav-style">
-          <ul>
-            <li>Welcome, {this.state.loggedInUser.username}</li>
-            <li>
-              <Link to='/'>
-                <button onClick={() => this.logoutUser()}>Logout</button>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      )
-    } else {
-      return ( 
-        <nav className="nav-style">
-          <Link to='/' style={{ textDecoration: 'none' }}><img className="logo" src="/images/logo.png" /></Link>
-          { this.state.sideBar ? sideBar : null }
-          <img className="menu" src="/images/menu.png" onClick={() => this.toogleSidebar()} />
-        </nav>
-      )
-    }
+    return ( 
+      <nav className="nav-style">
+        <Link to='/' style={{ textDecoration: 'none' }}><img className="logo" src="/images/logo.png" /></Link>
+        { this.state.sideBar ? sideBar : null }
+        <img className="menu" src="/images/menu.png" onClick={() => this.toogleSidebar()} />
+      </nav>
+    );
   }
 }
 

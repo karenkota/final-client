@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import './AddMedicalRecorder.css'
 import service from '../../api/service';
-// import PatientRecorder from "./PatientRecorder";
+import PatientRecorder from "./PatientRecorder";
+// import { Link } from 'react-router-dom';
 
 class AddMedicalRecorder extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class AddMedicalRecorder extends Component {
       description: "",
       medicines: "",
       upload: ""
-    };
+    }
   } 
   
   handleChange = e => {  
@@ -56,12 +57,13 @@ class AddMedicalRecorder extends Component {
         console.log("Error while adding the thing: ", err);
     });
   }  
+
   
   render() {
     return (
       <sections className="medical-area">
         <div className="search-patient">
-          
+          <PatientRecorder />
         </div>
         <div className="form-new-patient">
           <h2>New Patient</h2>
