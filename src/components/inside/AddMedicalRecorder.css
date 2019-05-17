@@ -1,3 +1,21 @@
+.search-patient {
+  border: 3px solid #F3595B;
+  background-color: #EBB6AB;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: 'Tangerine', cursive;
+  font-size: 2em;
+}
+
+.search-patient input {
+  width: 350px;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding-left: 20px;
+  margin-left: -100px;
+}
+
 .form-new-patient {
   border: 3px solid #4BAAD3;
   background-color: #B8D6E1;
@@ -6,6 +24,10 @@
   font-family: 'Scada', sans-serif;
 }
 
+.form-new-patient > h2 {
+  font-family: 'Tangerine', cursive;
+  font-size: 3.5em;
+}
 .input {
   width: 200px;
   border-radius: 5px;

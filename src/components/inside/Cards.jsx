@@ -6,6 +6,7 @@ const Cards = ({ patient }) => {
         {patient.fullname},
         {patient.age},
         {patient.genere},
+        {patient.bloodtype},
         {patient.phone},
         {patient.adress},
         {patient.chronicdiseases},

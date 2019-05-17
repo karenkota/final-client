@@ -30,7 +30,7 @@ class Login extends Component {
   render(){
     if (this.state.redirect) {
       return(
-        <Redirect to="/choicepatient" />
+        <Redirect to="/addmedicalrecorder" />
       );
     } else {
       return(
@@ -46,7 +46,6 @@ class Login extends Component {
                 <label>  Password:  </label>
                 <input type="password" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
               </div>
-              {/* type = deixa criptografado */}
               <div>
                 <button className="btn-login" type="submit">Login</button>
               </div>

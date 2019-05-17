@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-// import 'PatientRecorder.css';
 import { Link } from 'react-router-dom';
-import SearchPatient from './SearchPatient';
-import Cards from './Cards';
+// import Cards from './Cards';
 
 class PatientRecorder extends Component {
   constructor(props) {
@@ -12,13 +10,14 @@ class PatientRecorder extends Component {
       search: '',
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   search() {
     if (this.state.search.length !== 0) {      
       const patient = this.props.patientList.filter(e => e.fullname.includes(this.state.search));
-      this.setState({medicalrecorders: patient})
+      if (patient.length === 1) {
+        this.setState({medicalrecorders: patient})
+      }
     } else this.setState({medicalrecorders: []})
   }
 
@@ -30,8 +29,12 @@ class PatientRecorder extends Component {
   render() {
   return (
     <div>
-      <SearchPatient getPatient={this.getPatient} handleChange={this.handleChange} />
-      {this.state.medicalrecorders.map(p => <p>{<Cards patient={ p } />}</p>)}
+      <input type="text" placeholder="SEARCH" onChange={(e) => this.handleChange(e)} />
+       {
+          this.state.medicalrecorders.map((patients, idx) => { 
+          return <Link>{patients.fullname}</Link>
+            })
+      }
     </div>
   )}
 }    

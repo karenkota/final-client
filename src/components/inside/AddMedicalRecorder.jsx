@@ -11,6 +11,7 @@ class AddMedicalRecorder extends Component {
       fullname: "",
       age: "",
       genere: "",
+      bloodtype: "",
       phone:"",
       adress:"",
       chronicdiseases: "",
@@ -59,11 +60,12 @@ class AddMedicalRecorder extends Component {
   }  
 
   
-  render() {
+  render(props) {
     return (
       <sections className="medical-area">
         <div className="search-patient">
-          <PatientRecorder />
+        <h1>Welcome, Doctor!</h1>
+        <PatientRecorder patientList={this.props.patientList} />
         </div>
         <div className="form-new-patient">
           <h2>New Patient</h2>
