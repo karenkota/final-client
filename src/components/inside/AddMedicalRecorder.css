@@ -1,0 +1,49 @@
+.form-new-patient {
+  border: 3px solid #4BAAD3;
+  background-color: #B8D6E1;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: 'Scada', sans-serif;
+}
+
+.input {
+  width: 200px;
+  border-radius: 5px;
+  margin: 10px 5px;
+}
+
+.input-age {
+  width: 60px;
+  border-radius: 5px;
+}
+
+.input-phone {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.input-adress {
+  width: 328px;
+  border-radius: 5px;
+}
+
+.Diaseases{
+  margin-top: 20px;
+}
+
+.input-description {
+  display:flex;
+  justify-content: center;
+  width: 645px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.btns-upload {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-submit {
+  padding: 0 20px;  
+}

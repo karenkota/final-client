@@ -1,0 +1,20 @@
+.patients-care {
+  margin-left: 300px;
+  text-align: center;
+  border: 2px solid #4BAAD3 ;
+  color: #4BAAD3;
+  padding: 40px 40px;
+  width: 650px;
+  background-color: #F5F7F9;
+}
+
+.patients-care > h1 {
+  font-family: 'Tangerine', cursive;
+  font-size: 2.5em;
+  padding: 10px;
+}
+
+.patients-care > p {
+  font-family: 'Cabin Sketch', cursive;
+  padding: 10px;
+}

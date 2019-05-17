@@ -19,11 +19,11 @@ class Contacts extends Component {
 
   render() {
     return (
-      <section>
-        <div>
+      <section className="contacts-map">
+        <div classname="contacts">
           <p>
             <h2>Orchestra Medical Center</h2>
-            Al. Jau, 1301 - Consolacao, São Paulo (SP)
+            Al. Jaú, 1301 -  Consolação, São Paulo (SP)
           </p>
           <p>
             Phones
@@ -32,17 +32,14 @@ class Contacts extends Component {
           </p>
           <p>          
             Landing on the helipad
-            ​(SIHK) 23º 34’ 08’’S/046º 38’ 43’’ W
+            ​(SIHK) 23º 34’ 08’’ S/046º 38’ 43’’ W
           </p>     
         </div>
-        <div>
-          <div style={{ width: 500, height: 500 }} id="map" />
-        </div>
+        <div style={{ width: 450, height: 450 }} id="map" />
       </section>
       
     );
   }
 }
-
 
 export default Contacts;

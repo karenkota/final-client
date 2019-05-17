@@ -60,7 +60,7 @@ class Navbar extends Component {
     } else {
       return ( 
         <nav className="nav-style">
-          <a href=""><img className="logo" src="/images/logo.png" /></a>
+          <Link to='/' style={{ textDecoration: 'none' }}><img className="logo" src="/images/logo.png" /></Link>
           { this.state.sideBar ? sideBar : null }
           <img className="menu" src="/images/menu.png" onClick={() => this.toogleSidebar()} />
         </nav>

@@ -8,7 +8,7 @@
 .background { 
   text-align: center;
   /* The image used */
-  background-image: url("/images/medical-center.jpg");
+  background-image: url('/images/medical-center.jpg');
   /* Full height */
   height: 80vh; 
   /* Create the parallax scrolling effect */

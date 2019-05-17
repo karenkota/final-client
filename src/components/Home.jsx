@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 
@@ -11,11 +12,11 @@ const Home = (props) => {
       </div>
       <footer>
         <div className="PatientsCare">
-          <p>Our Story</p>
-          <p>Awards</p>
-          <p>Patients Care</p>
-          <p>Contacts</p>
-          <p>SAC</p>
+          <Link to='/about-us'>About Us</Link>
+          <Link to='/awards'>Awards</Link>
+          <Link to='/patients-care'>Patients Care</Link>
+          <Link to='/contacts'>Contacts</Link>
+          <Link to='/sac'>Sac</Link>
         </div>
         <div className="SocialMedia">
             <img src="/images/facebook.png" />

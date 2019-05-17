@@ -1,0 +1,16 @@
+.contacts-map {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+h2 {
+  font-family: 'Scada', sans-serif;
+  padding-top: 150px;
+}
+
+#map {
+  display: flex;
+  align-items: flex-end;
+}
+

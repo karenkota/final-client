@@ -18,8 +18,9 @@ export default {
       .catch(errorHandler);
   },
 
-  saveNewMedicalRecorder (newMedicalRecorder) {
+  saveNewMedicalRecorder (newMedicalRecorder) { 
     return service.post('/NewMedicalRecorder/create', newMedicalRecorder)
+    
       .then(res => res.data)
       .catch(errorHandler);
   }
