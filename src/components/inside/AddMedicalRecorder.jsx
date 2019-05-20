@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import './AddMedicalRecorder.css'
 import service from '../../api/service';
+import { Link } from 'react-router-dom';
 import PatientRecorder from "./PatientRecorder";
-// import { Link } from 'react-router-dom';
 
 class AddMedicalRecorder extends Component {
   constructor(props) {
@@ -12,6 +12,10 @@ class AddMedicalRecorder extends Component {
       age: "",
       genere: "",
       bloodtype: "",
+      cpf: "",
+      rg: "",
+      password: "",
+      medicalagreement: "",
       phone:"",
       adress:"",
       chronicdiseases: "",
@@ -45,7 +49,6 @@ class AddMedicalRecorder extends Component {
       });
   }
 
-  // this method submits the form
   handleSubmit = e => {
     e.preventDefault();
     
@@ -58,14 +61,14 @@ class AddMedicalRecorder extends Component {
         console.log("Error while adding the thing: ", err);
     });
   }  
-
   
   render(props) {
     return (
       <sections className="medical-area">
         <div className="search-patient">
         <h1>Welcome, Doctor!</h1>
-        <PatientRecorder patientList={this.props.patientList} />
+        <Link to='/patientrecorder' className="searchname">Search for Name</Link>
+
         </div>
         <div className="form-new-patient">
           <h2>New Patient</h2>
@@ -84,14 +87,46 @@ class AddMedicalRecorder extends Component {
                   value={ this.state.age } 
                   onChange={ e => this.handleChange(e)} />
               <label> Genere </label>
-              <input className="input"
+              <input className="input-genere"
                   type="text" 
                   name="genere" 
                   value={ this.state.genere} 
                   onChange={ e => this.handleChange(e)} />
+               <label> Blood Type </label>
+              <input className="input-blood"
+                  type="text" 
+                  name="bloodtype" 
+                  value={ this.state.bloodtype} 
+                  onChange={ e => this.handleChange(e)} />
+            </div>
+            <div className="documents">
+              <label> C.P.F.: </label>
+              <input className="input-cpf"
+                  type="number" 
+                  name="cpf" 
+                  value={ this.state.cpf} 
+                  onChange={ e => this.handleChange(e)} />
+                <label> R.G.:</label>
+                <input className="input-rg"
+                  type="number" 
+                  name="rg" 
+                  value={ this.state.rg} 
+                  onChange={ e => this.handleChange(e)} />
+                <label> Password </label>
+                <input className="input-password"
+                  type="text" 
+                  name="password" 
+                  value={ this.state.password} 
+                  onChange={ e => this.handleChange(e)} />
+                <label> Medical Agreement </label>
+                <input className="input-medical-agreement"
+                  type="text" 
+                  name="medical-agreement" 
+                  value={ this.state.medicalagreement} 
+                  onChange={ e => this.handleChange(e)} />
             </div>
             <div className="contacts">
-            <label> Phone number </label>
+              <label> Phone number </label>
               <input className="input-phone"
                   type="number" 
                   name="phone" 

@@ -4,6 +4,8 @@ import './App.css';
 import Login from './components/auth/Login';
 import AuthService from './components/auth/AuthService';
 import AddMedicalRecorder from './components/inside/AddMedicalRecorder';
+import PatientRecorder from './components/inside/PatientRecorder';
+import Cards from './components/inside/Cards';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Contacts from './components/links-footer/Contacts';
@@ -11,7 +13,6 @@ import AboutUs from './components/links-footer/AboutUs';
 import Awards from './components/links-footer/Awards';
 import PatientsCare from './components/links-footer/PatientsCare';
 import Sac from './components/links-footer/Sac';
-import PatientRecorder from './components/inside/PatientRecorder';
 import axios from 'axios';
 
 class App extends Component {
@@ -53,7 +54,9 @@ class App extends Component {
 	componentDidMount() {
 		axios.get("http://localhost:5003/api/medicalRecorder")
 		.then(res => {
-			this.setState({patientList: res.data})
+			this.setState({patientList: res.data}, () => {
+				console.log(this.state.patientList)
+			})
 		})
 		.catch(error => console.log(error))
 	}
@@ -67,7 +70,9 @@ class App extends Component {
 					<Switch> 
 							<Route exact path='/login' render={() => <Login setUser={this.setTheUser}/>}/>
 							<Route exact path='/' component={Home}/>
-			<Route exact path='/addmedicalrecorder' render={() => <AddMedicalRecorder patientList={this.state.patientList} />} />
+							<Route exact path='/addmedicalrecorder' render={() => <AddMedicalRecorder patientList={this.state.patientList} />} />
+							<Route exact path='/patientrecorder' render={(props) => <PatientRecorder {...props} patientList={this.state.patientList} />} />
+							<Route exact path='/patient/:id' component={Cards}/>
 							<Route exact path='/about-us' component={AboutUs}/>
 							<Route exact path='/awards' component={Awards}/>
 							<Route exact path='/patients-care' component={PatientsCare}/>

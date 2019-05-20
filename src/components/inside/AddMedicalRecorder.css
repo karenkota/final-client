@@ -2,7 +2,7 @@
   border: 3px solid #F3595B;
   background-color: #EBB6AB;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   font-family: 'Tangerine', cursive;
   font-size: 2em;
 }
@@ -12,8 +12,15 @@
   height: 40px;
   border-radius: 5px;
   margin-top: 10px;
-  padding-left: 20px;
-  margin-left: -100px;
+}
+
+.searchname {
+  color: #F3595B;
+  border: 3px solid #F3595B;
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  margin: 5px;
 }
 
 .form-new-patient {
@@ -35,8 +42,42 @@
 }
 
 .input-age {
-  width: 60px;
+  width: 50px;
   border-radius: 5px;
+}
+
+.input-genere {
+  width: 85px;
+  border-radius: 5px;
+}
+
+.input-blood {
+  width: 50px;
+  border-radius: 5px;
+}
+
+.input-cpf {
+  width: 100px;
+  border-radius: 5px;
+}
+
+.input-rg {
+  width: 100px;
+  border-radius: 5px;
+}
+
+.input-password {
+  width: 80px;
+  border-radius: 5px;
+}
+
+.input-medical-agreement {
+  width: 70px;
+  border-radius: 5px;
+}
+
+.contacts {
+  margin-top: 10px;
 }
 
 .input-phone {

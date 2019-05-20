@@ -23,5 +23,19 @@ export default {
     
       .then(res => res.data)
       .catch(errorHandler);
+  },
+
+  editMedicalRecorder (MedicalRecorder, id) {
+    return service.put(`/MedicalRecorder/edit/${id}`, MedicalRecorder)
+
+    .then(res => res.data)
+    .catch(errorHandler);
+  },
+
+  deleteMedicalRecorder (id) {
+    return service.delete(`/MedicalRecorder/delete/${id}`)
+
+    .then(res => res.data)
+    .catch(errorHandler);
   }
 }
