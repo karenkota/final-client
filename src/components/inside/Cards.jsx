@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom'
 import service from '../../api/service';
 import AddMedicalRecorder from "./AddMedicalRecorder";
 import axios from 'axios';
+
 
 class Cards extends Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class Cards extends Component {
       bloodtype: "",
       cpf: "",
       rg: "",
-      password: "",
+      email: "",
       medicalagreement: "",
       phone: "",
       adress: "",
@@ -30,7 +32,7 @@ class Cards extends Component {
   componentDidMount() {
 		axios.get(`http://localhost:5003/api/medicalRecorder/${this.props.match.params.id}`)
 		.then(res => {
-      const { fullname, age, genere, bloodtype, cpf, rg, password, medicalagreement, phone, adress, chronicdiseases, familiardiseases, medicaltreatments, description, medicines, upload } = res.data;
+      const { fullname, age, genere, bloodtype, cpf, rg, email, medicalagreement, phone, adress, chronicdiseases, familiardiseases, medicaltreatments, description, medicines, upload } = res.data;
 			this.setState({
         fullnameHeader: fullname,
         fullname,
@@ -39,7 +41,7 @@ class Cards extends Component {
         bloodtype,
         cpf,
         rg,
-        password,
+        email,
         medicalagreement,
         phone,
         adress,
@@ -90,8 +92,10 @@ class Cards extends Component {
   deletePatient = (e) => {   
     service.deleteMedicalRecorder(this.props.match.params.id)
     .then(res => {
-        console.log('delete: bye-bye', res);
-        // here you would redirect to some other page 
+        alert('Delete Patient', res);
+        return(
+        <Redirect to="/addmedicalrecorder"/>
+        )
     })
     .catch(err => {
         console.log("Error while delete the thing: ", err);
@@ -142,11 +146,11 @@ class Cards extends Component {
                 name="rg" 
                 value={ this.state.rg} 
                 onChange={ e => this.handleChange(e)} />
-              <label> Password </label>
-              <input className="input-password"
+              <label> e-mail </label>
+              <input className="input-email"
                 type="text" 
-                name="password" 
-                value={ this.state.password} 
+                name="email" 
+                value={ this.state.email} 
                 onChange={ e => this.handleChange(e)} />
               <label> Medical Agreement </label>
               <input className="input-medical-agreement"

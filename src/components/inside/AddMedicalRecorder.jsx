@@ -14,7 +14,7 @@ class AddMedicalRecorder extends Component {
       bloodtype: "",
       cpf: "",
       rg: "",
-      password: "",
+      email: "",
       medicalagreement: "",
       phone:"",
       adress:"",
@@ -112,11 +112,11 @@ class AddMedicalRecorder extends Component {
                   name="rg" 
                   value={ this.state.rg} 
                   onChange={ e => this.handleChange(e)} />
-                <label> Password </label>
-                <input className="input-password"
+                <label> Mail</label>
+                <input className="input-email"
                   type="text" 
-                  name="password" 
-                  value={ this.state.password} 
+                  name="email" 
+                  value={ this.state.email} 
                   onChange={ e => this.handleChange(e)} />
                 <label> Medical Agreement </label>
                 <input className="input-medical-agreement"

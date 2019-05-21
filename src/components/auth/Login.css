@@ -32,7 +32,7 @@
 .form-login {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 40%;
+  padding-top: 250px;
   font-family: 'Scada', sans-serif;
   font-size: 1.2em;
   flex-direction: column;
@@ -63,7 +63,7 @@
 
 .LoginCare {
   color: #4BAAD3;
-  margin-top:27%;
+  margin-top:350px;
 }
 
 .LoginCare > p {

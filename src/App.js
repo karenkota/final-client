@@ -23,6 +23,7 @@ class App extends Component {
 				patientList: [],
 			 };
 			this.service = new AuthService();
+			this.setTheUser = this.setTheUser.bind(this);
 	}
 
 	setTheUser = (userObj) => {
@@ -63,7 +64,7 @@ class App extends Component {
 			
 	render() {
 		this.fetchUser()
-		if(this.state.loggedInUser){
+		if(this.state.loggedInUser !== null){
 			return (
 				<div className="App">
 					<Navbar userInSession={this.state.loggedInUser} setUser={this.setTheUser} />

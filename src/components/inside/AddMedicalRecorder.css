@@ -1,6 +1,6 @@
 .search-patient {
-  border: 3px solid #F3595B;
-  background-color: #EBB6AB;
+  border: 3px solid #5EB2D7;
+  background-color: #5EB2D7;
   display: flex;
   justify-content: space-around;
   font-family: 'Tangerine', cursive;
@@ -15,8 +15,8 @@
 }
 
 .searchname {
-  color: #F3595B;
-  border: 3px solid #F3595B;
+  color: #5EB2D7;
+  border: 3px solid #5EB2D7;
   background: white;
   padding: 10px;
   border-radius: 15px;
@@ -66,13 +66,13 @@
   border-radius: 5px;
 }
 
-.input-password {
-  width: 80px;
+.input-email{
+  width: 130px;
   border-radius: 5px;
 }
 
 .input-medical-agreement {
-  width: 70px;
+  width: 60px;
   border-radius: 5px;
 }
 

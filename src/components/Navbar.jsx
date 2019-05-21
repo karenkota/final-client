@@ -21,9 +21,10 @@ class Navbar extends Component {
   logoutUser = () =>{
     this.service.logout()
     .then(() => {
-      this.setState({ loggedInUser: null });
-      this.props.setUser(null);  
-    })
+      console.log('akjslkdjasld');
+      
+      })
+      this.props.setUser({});  
   }
 
   toogleSidebar() {

@@ -37,9 +37,9 @@
   padding-top: 10vh;
 }
 
-.PatientsCare{
+.PatientsCare a {
   font-family: 'Cabin Sketch', cursive;
-  color:#F35558;
+  color:#74BDDC;
   display:flex;
   flex-direction: column;
   justify-content: space-around;
@@ -64,4 +64,10 @@
   font-family: 'Cabin Sketch', cursive;
   font-size: 1em;
   padding-right: 1vh;
+}
+
+@media only screen and (max-width: 114px) {
+
+  background-color: rgb(54, 54, 54);
+
 }

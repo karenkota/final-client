@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './PatientRecorder.css'
 import { Link } from 'react-router-dom';
 import Cards from './Cards';
 
@@ -28,13 +29,13 @@ class PatientRecorder extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" placeholder="SEARCH" onChange={(e) => this.handleChange(e)} />
+      <div className="search-bar">
+        <input className="search-bar-name" type="text" placeholder="SEARCH FOR NAME" onChange={(e) => this.handleChange(e)} />
         {             
           this.state.medicalrecorders.map((patient, idx) => {
             return (
-            <ul>
-              <li><Link to={`/patient/${patient._id}`}>{patient.fullname}</Link></li>
+            <ul className="list-names-col">
+              <li className="list-names"><Link to={`/patient/${patient._id}`}>{patient.fullname}</Link></li>
             </ul>
             )
           })
