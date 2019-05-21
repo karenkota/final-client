@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './PatientRecorder.css'
 import { Link } from 'react-router-dom';
-import Cards from './Cards';
 
 class PatientRecorder extends Component {
   constructor(props) {
@@ -11,9 +10,11 @@ class PatientRecorder extends Component {
       userInput: '',
     }  
     this.handleChange = this.handleChange.bind(this);
+    this.search = this.search.bind(this);
   }
 
   search() {
+    console.log('prrops', this.props)
     if (this.state.userInput.length !== 0) {      
       const patient = this.props.patientList.filter(e => e.fullname.includes(this.state.userInput));
       console.log(patient)
@@ -34,9 +35,11 @@ class PatientRecorder extends Component {
         {             
           this.state.medicalrecorders.map((patient, idx) => {
             return (
-            <ul className="list-names-col">
-              <li className="list-names"><Link to={`/patient/${patient._id}`}>{patient.fullname}</Link></li>
-            </ul>
+              <div className="list-names">
+                <li>
+                  <Link to={`/patient/${patient._id}`}>{patient.fullname}</Link>
+                </li>
+              </div>  
             )
           })
         } 

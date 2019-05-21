@@ -1,3 +1,11 @@
+.medical-area > h2 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
 .delete {
   float: rigth;
 }

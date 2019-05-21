@@ -1,26 +1,29 @@
 .search-bar {
+  position: fixed;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  align-items: center;
 }
 
 .search-bar-name {
+  border: 2px solid red;
   border-radius: 15px;
   width: 600px;
   height: 50px;
   margin-top: 40px;
   font-family: 'Scada', sans-serif;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
   text-align: center;
 }
 
 .list-names {
-  text-decoration: none;
-  margin-top: 160px;
+  border: 2px solid black;
+  margin-top: 300px;
   display: flex;
   flex-direction: column;
   text-align: center;
-  
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
 }

@@ -21,10 +21,8 @@ class Navbar extends Component {
   logoutUser = () =>{
     this.service.logout()
     .then(() => {
-      console.log('akjslkdjasld');
-      
-      })
-      this.props.setUser({});  
+      this.props.setUser(false);  
+      });
   }
 
   toogleSidebar() {
@@ -34,9 +32,15 @@ class Navbar extends Component {
   }
   
   render(){
-    const sideBar = (
+    // console.log(this.state.loggedInUser)
+    const sideBar = this.state.loggedInUser ? (
       <div className="sidebar">
         <Link to='/' style={{ textDecoration: 'none' }}><p onClick={() => this.logoutUser()}>Logout</p></Link>
+        <Link to='/contacts' style={{ textDecoration: 'none' }}>Contacts</Link>
+        <Link to='/sac' style={{ textDecoration: 'none' }}>SAC</Link>
+      </div>
+    ) : (
+      <div className="sidebar">
         <Link to='/login' style={{ textDecoration: 'none' }}>Login</Link>
         <Link to='/contacts' style={{ textDecoration: 'none' }}>Contacts</Link>
         <Link to='/sac' style={{ textDecoration: 'none' }}>SAC</Link>

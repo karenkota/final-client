@@ -104,7 +104,7 @@ class Cards extends Component {
 
   render(props) {
     return (
-      <sections className="medical-area">
+      <section className="medical-area">
         <h2>{this.state.fullnameHeader}</h2>
         <form onSubmit={e => this.handleSubmit(e)}>
           <div className="Patient">
@@ -225,7 +225,7 @@ class Cards extends Component {
           </div>
         </form>
           <button className="delete" onClick={() => this.deletePatient()}> DELETE </button>
-      </sections>
+      </section>
     );
   }
 }

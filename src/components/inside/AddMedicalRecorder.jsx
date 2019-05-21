@@ -64,7 +64,7 @@ class AddMedicalRecorder extends Component {
   
   render(props) {
     return (
-      <sections className="medical-area">
+      <section className="medical-area">
         <div className="search-patient">
         <h1>Welcome, Doctor!</h1>
         <Link to='/patientrecorder' className="searchname">Search for Name</Link>
@@ -191,7 +191,7 @@ class AddMedicalRecorder extends Component {
             </div>
           </form>
         </div>
-      </sections>
+      </section>
     );
   }
 }

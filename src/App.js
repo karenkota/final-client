@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Login from './components/auth/Login';
 import AuthService from './components/auth/AuthService';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import AddMedicalRecorder from './components/inside/AddMedicalRecorder';
 import PatientRecorder from './components/inside/PatientRecorder';
 import Cards from './components/inside/Cards';
@@ -36,11 +37,13 @@ class App extends Component {
 
 	fetchUser() {
 		if(this.state.loggedInUser === null){
+			console.log('LOGGGADDDDOOO')
 					this.service.loggedin()
 					.then(response =>{
 							this.setState({
 									loggedInUser: response
 							}, () => {
+
 							})
 					})
 					.catch( err =>{
@@ -71,14 +74,14 @@ class App extends Component {
 					<Switch> 
 							<Route exact path='/login' render={() => <Login setUser={this.setTheUser}/>}/>
 							<Route exact path='/' component={Home}/>
-							<Route exact path='/addmedicalrecorder' render={() => <AddMedicalRecorder patientList={this.state.patientList} />} />
-							<Route exact path='/patientrecorder' render={(props) => <PatientRecorder {...props} patientList={this.state.patientList} />} />
-							<Route exact path='/patient/:id' component={Cards}/>
 							<Route exact path='/about-us' component={AboutUs}/>
 							<Route exact path='/awards' component={Awards}/>
 							<Route exact path='/patients-care' component={PatientsCare}/>
 							<Route exact path='/sac' component={Sac}/>
 							<Route exact path='/contacts' component={Contacts}/>
+							<ProtectedRoute exact path='/addmedicalrecorder' user={this.state.loggedInUser} patientList={this.state.patientList} component={AddMedicalRecorder} />
+							<ProtectedRoute exact path='/patientrecorder' user={this.state.loggedInUser} patientList={this.state.patientList} component={PatientRecorder} />
+							<ProtectedRoute exact path='/patient/:id' user={this.state.loggedInUser} component={Cards}/>
 						</Switch>
 				</div>
 			);
