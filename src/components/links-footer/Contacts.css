@@ -1,12 +1,14 @@
 .contacts-map {
   display: flex;
   justify-content: space-evenly;
-
+  font-family: 'Cabin Sketch', cursive;
+  color: #2C323E;
 }
 
 h2 {
-  font-family: 'Scada', sans-serif;
-  padding-top: 150px;
+  font-family: 'Cabin Sketch', cursive;
+  padding-top: 170px;
+  font-size: 40px;
 }
 
 #map {

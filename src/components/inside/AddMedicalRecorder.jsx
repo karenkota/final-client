@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './AddMedicalRecorder.css'
 import service from '../../api/service';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 class AddMedicalRecorder extends Component {
   constructor(props) {
@@ -112,13 +112,13 @@ class AddMedicalRecorder extends Component {
                   name="cpf" 
                   value={ this.state.cpf} 
                   onChange={ e => this.handleChange(e)} />
-                <label> R.G.:</label>
+                <label> R.G.: </label>
                 <input className="input-rg"
                   type="number" 
                   name="rg" 
                   value={ this.state.rg} 
                   onChange={ e => this.handleChange(e)} />
-                <label> Mail</label>
+                <label> Mail </label>
                 <input className="input-email"
                   type="text" 
                   name="email" 

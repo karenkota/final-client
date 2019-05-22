@@ -1,0 +1,41 @@
+.contact-form {
+  font-family: 'Cabin Sketch', cursive;
+  border: 2px solid #4BAAD3;
+  border-radius: 10px;
+  background-color: #F5F7F9;
+  padding: 10px;
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 15px 0 40px 60px;
+}
+
+.form-sac {
+  padding: 5px 0;
+}
+
+.form-sac > .input-email-sac { 
+  width: 400px;
+  border-radius: 5px;
+}
+
+.input-name-sac {
+  margin-top: 15px;
+  margin-left: 5px;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.form-sac > textarea { 
+  width: 550px;
+  border-radius: 15px;
+}
+
+.btn-SAC {
+  font-family: 'Cabin Sketch', cursive;
+  width: 80px;
+  border-radius: 5px;
+  background-color: #4BAAD3;
+  margin-top: 20px;
+}

@@ -138,7 +138,7 @@ class Cards extends Component {
     });
   }
 
-  render( ) {
+  render() {
     return (
       <section className="medical-area">
         {this.handleRedirect()}
