@@ -2,16 +2,18 @@ import React, { Component } from "react";
 import './AddMedicalRecorder.css'
 import service from '../../api/service';
 import { Link } from 'react-router-dom';
-import PatientRecorder from "./PatientRecorder";
+import { Redirect } from 'react-router-dom'
 
 class AddMedicalRecorder extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirect: false,
+      newId: '',
       fullname: "",
       age: "",
       genere: "",
-      bloodtype: "",
+      typeblood: "",
       cpf: "",
       rg: "",
       email: "",
@@ -32,7 +34,12 @@ class AddMedicalRecorder extends Component {
     this.setState({ [name]: value });
   }
 
-  // this method handles just the file upload
+  handleRedirect = () => {
+    if (this.state.redirect) {
+      return (<Redirect to={`/patient/${this.state.newId}`} />)
+    }
+  }
+
   handleFileUpload = e => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
 
@@ -51,24 +58,23 @@ class AddMedicalRecorder extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    
     service.saveNewMedicalRecorder(this.state)
     .then(res => {
-        console.log('added: ', res);
-        // here you would redirect to some other page 
+        console.log('added: ', res)
+        this.setState({redirect: true, newId: res._id})
     })
     .catch(err => {
         console.log("Error while adding the thing: ", err);
     });
   }  
   
-  render(props) {
+  render() {
     return (
-      <section className="medical-area">
+      <section className="medical-search">
+        {this.handleRedirect()}
         <div className="search-patient">
         <h1>Welcome, Doctor!</h1>
         <Link to='/patientrecorder' className="searchname">Search for Name</Link>
-
         </div>
         <div className="form-new-patient">
           <h2>New Patient</h2>
@@ -95,8 +101,8 @@ class AddMedicalRecorder extends Component {
                <label> Blood Type </label>
               <input className="input-blood"
                   type="text" 
-                  name="bloodtype" 
-                  value={ this.state.bloodtype} 
+                  name="typeblood" 
+                  value={ this.state.typeblood} 
                   onChange={ e => this.handleChange(e)} />
             </div>
             <div className="documents">
@@ -121,7 +127,7 @@ class AddMedicalRecorder extends Component {
                 <label> Medical Agreement </label>
                 <input className="input-medical-agreement"
                   type="text" 
-                  name="medical-agreement" 
+                  name="medicalagreement" 
                   value={ this.state.medicalagreement} 
                   onChange={ e => this.handleChange(e)} />
             </div>
@@ -185,8 +191,8 @@ class AddMedicalRecorder extends Component {
             </div>    
             <div className="btns-upload">
                 <input 
-                    type="file" 
-                    onChange={(e) => this.handleFileUpload(e)} /> 
+                  type="file" 
+                  onChange={(e) => this.handleFileUpload(e)} /> 
                 <button className="btn-submit" type="submit"> Save </button>
             </div>
           </form>

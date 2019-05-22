@@ -14,10 +14,8 @@ class PatientRecorder extends Component {
   }
 
   search() {
-    console.log('prrops', this.props)
     if (this.state.userInput.length !== 0) {      
-      const patient = this.props.patientList.filter(e => e.fullname.includes(this.state.userInput));
-      console.log(patient)
+      const patient = this.props.patientList.filter(e => e.fullname.toLowerCase().includes(this.state.userInput.toLowerCase()));
       this.setState({medicalrecorders: patient}, () => {
         console.log(this.state.medicalrecorders)
       })
@@ -37,7 +35,7 @@ class PatientRecorder extends Component {
             return (
               <div className="list-names">
                 <li>
-                  <Link to={`/patient/${patient._id}`}>{patient.fullname}</Link>
+                  <Link to={`/patient/${patient._id}`} > {patient.fullname}</Link>
                 </li>
               </div>  
             )

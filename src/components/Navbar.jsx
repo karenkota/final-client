@@ -32,7 +32,6 @@ class Navbar extends Component {
   }
   
   render(){
-    // console.log(this.state.loggedInUser)
     const sideBar = this.state.loggedInUser ? (
       <div className="sidebar">
         <Link to='/' style={{ textDecoration: 'none' }}><p onClick={() => this.logoutUser()}>Logout</p></Link>

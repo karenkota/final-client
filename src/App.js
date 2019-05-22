@@ -37,7 +37,7 @@ class App extends Component {
 
 	fetchUser() {
 		if(this.state.loggedInUser === null){
-			console.log('LOGGGADDDDOOO')
+			console.log('Logged User!!!')
 					this.service.loggedin()
 					.then(response =>{
 							this.setState({
@@ -59,7 +59,7 @@ class App extends Component {
 		axios.get("http://localhost:5003/api/medicalRecorder")
 		.then(res => {
 			this.setState({patientList: res.data}, () => {
-				console.log(this.state.patientList)
+				console.log('receive dbs: patientList')
 			})
 		})
 		.catch(error => console.log(error))
@@ -98,7 +98,6 @@ class App extends Component {
 							<Route exact path='/patients-care' component={PatientsCare}/>
 							<Route exact path='/sac' component={Sac}/>
 						</Switch>
-						
 				</div>
 			);
 		}

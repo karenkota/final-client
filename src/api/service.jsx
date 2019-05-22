@@ -25,7 +25,7 @@ export default {
       .catch(errorHandler);
   },
 
-  editMedicalRecorder (MedicalRecorder, id) {
+  editMedicalRecorder (id, MedicalRecorder) {
     return service.put(`/MedicalRecorder/edit/${id}`, MedicalRecorder)
 
     .then(res => res.data)

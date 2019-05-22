@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import service from '../../api/service';
-import AddMedicalRecorder from "./AddMedicalRecorder";
+import './Cards.css'
 import axios from 'axios';
-
 
 class Cards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullnameHeader: "",
+      redirect: false,
       fullname: "",
       age: "",
       genere: "",
-      bloodtype: "",
+      typeblood: "",
       cpf: "",
       rg: "",
       email: "",
@@ -29,16 +29,23 @@ class Cards extends Component {
     }
   } 
 
+  handleRedirect = () => {
+    if (this.state.redirect) {
+      return (
+      <Redirect to='/addmedicalrecorder' />
+      )
+    }
+  }
+
   componentDidMount() {
-		axios.get(`http://localhost:5003/api/medicalRecorder/${this.props.match.params.id}`)
+		axios.get(`http://localhost:5003/api/medicalRecorder/${this.props.computedMatch.params.id}`)
 		.then(res => {
-      const { fullname, age, genere, bloodtype, cpf, rg, email, medicalagreement, phone, adress, chronicdiseases, familiardiseases, medicaltreatments, description, medicines, upload } = res.data;
+      const { fullname, age, genere, typeblood, cpf, rg, email, medicalagreement, phone, adress, chronicdiseases, familiardiseases, medicaltreatments, description, medicines, upload } = res.data;
 			this.setState({
-        fullnameHeader: fullname,
         fullname,
         age,
         genere,
-        bloodtype,
+        typeblood,
         cpf,
         rg,
         email,
@@ -79,33 +86,63 @@ class Cards extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    service.editMedicalRecorder(this.state, this.props.match.params.id)
+    const fullname = this.state.fullname; 
+    const age = this.state.age; 
+    const genere = this.state.genere; 
+    const typeblood = this.state.typeblood; 
+    const cpf = this.state.cpf; 
+    const rg = this.state.rg;
+    const email = this.state.email; 
+    const medicalagreement = this.state.medicalagreement; 
+    const phone = this.state.phone;
+    const adress = this.state.adress;
+    const chronicdiseases = this.state.chronicdiseases;
+    const familiardiseases = this.state.familiardiseases;
+    const medicaltreatments = this.state.medicaltreatments;
+    const description = this.state.description;
+    const medicines = this.state.medicines;
+    service.editMedicalRecorder(this.props.computedMatch.params.id, {fullname, age, genere, typeblood, cpf, rg, email, medicalagreement, phone, adress, chronicdiseases, familiardiseases, medicaltreatments, description, medicines})
     .then(res => {
-        console.log('edit: NEW DATA', res);
-        // here you would redirect to some other page 
+      console.log('edit: NEW DATA', res);
+      this.setState({redirect: true})
     })
     .catch(err => {
-        console.log("Error while editing the thing: ", err);
+      console.log("Error while editing the thing: ", err);
     });
   }  
   
   deletePatient = (e) => {   
-    service.deleteMedicalRecorder(this.props.match.params.id)
+    const fullname = this.state.fullname; 
+    const age = this.state.age; 
+    const genere = this.state.genere; 
+    const typeblood = this.state.typeblood; 
+    const cpf = this.state.cpf; 
+    const rg = this.state.rg;
+    const email = this.state.email; 
+    const medicalagreement = this.state.medicalagreement; 
+    const phone = this.state.phone;
+    const adress = this.state.adress;
+    const chronicdiseases = this.state.chronicdiseases;
+    const familiardiseases = this.state.familiardiseases;
+    const medicaltreatments = this.state.medicaltreatments;
+    const description = this.state.description;
+    const medicines = this.state.medicines;
+    const upload = this.state.upload;
+    service.deleteMedicalRecorder(this.props.computedMatch.params.id, {fullname, age, genere, typeblood, cpf, rg, email, medicalagreement, phone, adress, chronicdiseases, familiardiseases, medicaltreatments, description, medicines})
     .then(res => {
-        alert('Delete Patient', res);
-        return(
-        <Redirect to="/addmedicalrecorder"/>
-        )
+      console.log('DELETE PATIENT', res);
+      this.setState({redirect: true})
     })
     .catch(err => {
         console.log("Error while delete the thing: ", err);
     });
   }
 
-  render(props) {
+  render( ) {
     return (
       <section className="medical-area">
-        <h2>{this.state.fullnameHeader}</h2>
+        {this.handleRedirect()}
+        <Link to='/patientrecorder' className="searchNewName">Search New Name</Link>
         <form onSubmit={e => this.handleSubmit(e)}>
           <div className="Patient">
           <label> Fullname </label>
@@ -129,8 +166,8 @@ class Cards extends Component {
               <label> Blood Type </label>
             <input className="input-blood"
                 type="text" 
-                name="bloodtype" 
-                value={ this.state.bloodtype} 
+                name="typeblood" 
+                value={ this.state.typeblood} 
                 onChange={ e => this.handleChange(e)} />
           </div>
           <div className="documents">
@@ -221,10 +258,10 @@ class Cards extends Component {
               <input 
                   type="file" 
                   onChange={(e) => this.handleFileUpload(e)} /> 
-              <button className="btn-submit" type="submit"> EDIT </button>
+              <button className="btn-submit" onSubmit={(e) => this.handleSubmit(e)} type="submit"> EDIT </button>
           </div>
         </form>
-          <button className="delete" onClick={() => this.deletePatient()}> DELETE </button>
+          <button className="delete" onClick={(e) => this.deletePatient(e)}> DELETE </button>
       </section>
     );
   }
