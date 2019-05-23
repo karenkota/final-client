@@ -39,3 +39,29 @@
   background-color: #4BAAD3;
   margin-top: 20px;
 }
+
+@media screen and (max-width: 414px) {
+  .contact-form {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 15px 0 0 10px;
+  }
+  .form-sac > .input-email-sac { 
+    width: 250px;
+    border-radius: 5px;
+  }
+  
+  .input-name-sac {
+    margin-top: 15px;
+    margin-left: 5px;
+    width: 250px;
+    border-radius: 5px;
+  }
+  
+  .form-sac > textarea { 
+    width: 240px;
+    border-radius: 15px;
+  }
+}

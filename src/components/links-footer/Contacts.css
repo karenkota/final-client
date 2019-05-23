@@ -16,3 +16,28 @@ h2 {
   align-items: flex-end;
 }
 
+@media screen and (max-width: 768px) {
+  h2 {
+    padding-top: 50px;
+    font-size: 30px;
+  }
+  #map {
+    margin-top: 200px;
+    margin-left: -570px;
+  }
+}
+@media screen and (max-width: 414px) {
+  h2 {
+    padding-top: 50px;
+    font-size: 30px;
+  }
+  p {
+    font-size: 1em;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #map div {
+    width: -40%;
+    margin-left: 55px;
+  }
+}
