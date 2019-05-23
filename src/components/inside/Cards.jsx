@@ -145,7 +145,7 @@ class Cards extends Component {
         <form onSubmit={e => this.handleSubmit(e)}>
           <div className="Patient">
           <label> Fullname </label>
-            <input className="input"
+            <input className="input-name"
                 type="text" 
                 name="fullname"
                 value={this.state.fullname} 
@@ -182,13 +182,13 @@ class Cards extends Component {
                 name="rg" 
                 value={ this.state.rg} 
                 onChange={ e => this.handleChange(e)} />
-              <label> e-mail </label>
+              <label> email </label>
               <input className="input-email"
                 type="text" 
                 name="email" 
                 value={ this.state.email} 
                 onChange={ e => this.handleChange(e)} />
-              <label> Medical Agreement </label>
+              <label className="input-medical-agreement-lb" > Medical Agreement </label>
               <input className="input-medical-agreement"
                 type="text" 
                 name="medical-agreement" 

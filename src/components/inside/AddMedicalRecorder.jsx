@@ -42,7 +42,7 @@ class AddMedicalRecorder extends Component {
 
   handleFileUpload = e => {
     const uploadData = new FormData();
-    uploadData.append("imageUrl", e.target.files[0]);
+    uploadData.append("imageUrl", e.target.files[0-10]);
     
     service.handleUpload(uploadData)
     .then(response => {

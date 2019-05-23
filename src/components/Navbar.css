@@ -55,8 +55,16 @@
     margin-top: 2px;
     padding-left: 5px;
   }
+  .menu {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
 }
 @media screen and (max-width: 414px) {
+  .logo {
+    height: 6vh;
+  }
   .sidebar {
     text-decoration: none;
     display: flex;
@@ -64,11 +72,8 @@
     font-size: 0.8em;
   }
   .menu {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     margin-right: 2px;
-  }
-  .logo {
-    margin-left: -30px;
   }
 }

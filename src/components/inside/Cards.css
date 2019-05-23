@@ -37,10 +37,10 @@
   margin-left: 80px;
 }
 
-.input {
-  width: 250px;
+.input-name {
+  width: 255px;
   border-radius: 5px;
-  margin: 10px 5px;
+  margin-bottom: 10px;
 }
 
 .input-age {
@@ -120,7 +120,96 @@
 }
 
 @media screen and (max-width: 768px) {
-  body {
-   width: -40%;
+  .medical-area {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -40px;
+  }
+  .Links-names {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-top: -530px;
+  }
+  .formNames {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .searchNewName {
+    width: 150px;
+    height: 65px;
+    margin-right: 50px;
+  }
+  .addNewName {
+    width: 150px;
+    height: 65px;
+    margin-top: 10px;
+  }
+  .form-new-patient > h2 {
+    display: none;
+  }
+  input {
+    margin-bottom: 5px;
+  }
+  .input-description {
+    width: 600px;
+    height: 80px;
+  }
+  .input-medical-agreement{
+    width: 150px;
+  }
+  .Patient {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .documents {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .input-adress {
+    width: 450px;
+  }
+  .input-description {
+    width: 450px;
+    height: 90px;
+  }
+  .delete {
+    margin-top: 1090px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .medical-area {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -75px;
+  }
+  .Links-names {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-top: -510px;
+    margin-left: 60px;
+  }
+  .input-adress {
+    width: 330px;
+  }
+  .input-description {
+    width: 330px;
+    height: 100px;
+  }
+  .btn-submit{
+    margin-left: 20px;
+  }
+  .delete {
+    margin-top: 1100px;
   }
 }

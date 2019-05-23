@@ -40,7 +40,6 @@ export default {
   },
 
   sendmail (name, email, message) {
-    console.log ('ashbdjhasbdjhasbdj', name, email, message)
     return service.post(`/send-email`, {name: name, email: email, message: message})
 
     .then(res => res.data)
