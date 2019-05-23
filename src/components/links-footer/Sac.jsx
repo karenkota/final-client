@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './Sac.css';
-import axios from 'axios';
+import service from '../../api/service';
 import { Redirect } from 'react-router-dom';
 
 class Sac extends Component {
@@ -27,18 +27,13 @@ class Sac extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    axios.post('http://localhost:5003/api/send-email', this.state)
-    .then((response) => {
-      console.log('responseeeeeee', response)
-      this.setState({
-        name : '',
-        email: '',  
-        message: ''
-      });
+    service.sendmail(this.state.name, this.state.email, this.state.message)
+    .then(res => {
+      this.setState({redirect: true})
       alert("Message Sent"); 
-      })
-      .catch(error => console.log(error))
-    }
+    })
+    .catch(error => console.log(error))
+  }
     
     render() {
       return(

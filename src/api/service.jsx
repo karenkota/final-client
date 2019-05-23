@@ -15,7 +15,7 @@ export default {
   handleUpload (theFile) {
     return service.post('/upload', theFile)
       .then(res => res.data)
-      .catch(errorHandler => console.log(errorHandler));
+      .catch(errorHandler);
   },
 
   saveNewMedicalRecorder (newMedicalRecorder) { 
@@ -34,6 +34,14 @@ export default {
 
   deleteMedicalRecorder (id) {
     return service.delete(`/MedicalRecorder/delete/${id}`)
+
+    .then(res => res.data)
+    .catch(errorHandler);
+  },
+
+  sendmail (name, email, message) {
+    console.log ('ashbdjhasbdjhasbdj', name, email, message)
+    return service.post(`/send-email`, {name: name, email: email, message: message})
 
     .then(res => res.data)
     .catch(errorHandler);

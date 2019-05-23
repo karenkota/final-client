@@ -41,15 +41,12 @@ class AddMedicalRecorder extends Component {
   }
 
   handleFileUpload = e => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
-
     const uploadData = new FormData();
     uploadData.append("imageUrl", e.target.files[0]);
     
     service.handleUpload(uploadData)
     .then(response => {
         this.setState({ imageUrl: response.secure_url });
-        console.log(response.secure_url)
       })
       .catch(err => {
         console.log("Error while uploading the file: ", err);
@@ -60,7 +57,6 @@ class AddMedicalRecorder extends Component {
     e.preventDefault();
     service.saveNewMedicalRecorder(this.state)
     .then(res => {
-        console.log('added: ', res)
         this.setState({redirect: true, newId: res._id})
     })
     .catch(err => {
@@ -125,7 +121,7 @@ class AddMedicalRecorder extends Component {
                   value={ this.state.email} 
                   onChange={ e => this.handleChange(e)} />
                 <label> Medical Agreement </label>
-                <input className="input-medical-agreement"
+                <input className="medical-agreement"
                   type="text" 
                   name="medicalagreement" 
                   value={ this.state.medicalagreement} 
@@ -139,7 +135,7 @@ class AddMedicalRecorder extends Component {
                   value={ this.state.phone} 
                   onChange={ e => this.handleChange(e)} />
                 <label> Adress </label>
-                <input className="input-adress"
+                <input className="adress"
                   type="text" 
                   name="adress" 
                   value={ this.state.adress } 

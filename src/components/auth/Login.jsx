@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from './AuthService';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import './Login.css';
 
@@ -55,11 +56,11 @@ class Login extends Component {
   
            <footer>
                <div className="LoginCare">
-                 <p>Our Story</p>
-                 <p>Awards</p>
-                 <p>Patients Care</p>
-                 <p>Contacts</p>
-                 <p>SAC</p>
+                  <Link className="p" to='/about-us'>About Us</Link>
+                  <Link className="p" to='/awards'>Awards</Link>
+                  <Link className="p" to='/patients-care'>Patients Care</Link>
+                  <Link className="p" to='/contacts'>Contacts</Link>
+                  <Link className="p" to='/sac'>Sac</Link>
                 </div>
                <div className="Sociallogin">
                    <img src="/images/facebook.png" />

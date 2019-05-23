@@ -69,15 +69,12 @@ class Cards extends Component {
   }
 
   handleFileUpload = e => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
-
     const uploadData = new FormData();
     uploadData.append("imageUrl", e.target.files[0]);
     
     service.handleUpload(uploadData)
     .then(response => {
         this.setState({ imageUrl: response.secure_url });
-        console.log(response.secure_url)
       })
       .catch(err => {
         console.log("Error while uploading the file: ", err);
@@ -103,7 +100,6 @@ class Cards extends Component {
     const medicines = this.state.medicines;
     service.editMedicalRecorder(this.props.computedMatch.params.id, {fullname, age, genere, typeblood, cpf, rg, email, medicalagreement, phone, adress, chronicdiseases, familiardiseases, medicaltreatments, description, medicines})
     .then(res => {
-      console.log('edit: NEW DATA', res);
       this.setState({redirect: true})
     })
     .catch(err => {
@@ -130,11 +126,10 @@ class Cards extends Component {
     const upload = this.state.upload;
     service.deleteMedicalRecorder(this.props.computedMatch.params.id, {fullname, age, genere, typeblood, cpf, rg, email, medicalagreement, phone, adress, chronicdiseases, familiardiseases, medicaltreatments, description, medicines})
     .then(res => {
-      console.log('DELETE PATIENT', res);
       this.setState({redirect: true})
     })
     .catch(err => {
-        console.log("Error while delete the thing: ", err);
+      console.log("Error while delete the thing: ", err);
     });
   }
 
@@ -142,7 +137,11 @@ class Cards extends Component {
     return (
       <section className="medical-area">
         {this.handleRedirect()}
-        <Link to='/patientrecorder' className="searchNewName">Search New Name</Link>
+        <div className="Links-names">
+          <Link to='/patientrecorder' className="searchNewName">Search New Name</Link>
+          <Link to='/addmedicalrecorder' className="addNewName">Add New Patient</Link>
+        </div>
+        <div className="formNames">
         <form onSubmit={e => this.handleSubmit(e)}>
           <div className="Patient">
           <label> Fullname </label>
@@ -261,6 +260,7 @@ class Cards extends Component {
               <button className="btn-submit" onSubmit={(e) => this.handleSubmit(e)} type="submit"> EDIT </button>
           </div>
         </form>
+        </div>
           <button className="delete" onClick={(e) => this.deletePatient(e)}> DELETE </button>
       </section>
     );

@@ -30,14 +30,11 @@ class App extends Component {
 	setTheUser = (userObj) => {
 			this.setState({
 					loggedInUser: userObj
-			}, () => {
-				console.log(this.state.loggedInUser)
 			})
 	}
 
 	fetchUser() {
 		if(this.state.loggedInUser === null){
-			console.log('Logged User!!!')
 					this.service.loggedin()
 					.then(response =>{
 							this.setState({
@@ -59,7 +56,6 @@ class App extends Component {
 		axios.get("http://localhost:5003/api/medicalRecorder")
 		.then(res => {
 			this.setState({patientList: res.data}, () => {
-				console.log('receive dbs: patientList')
 			})
 		})
 		.catch(error => console.log(error))

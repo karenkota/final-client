@@ -66,8 +66,18 @@
   padding-right: 1vh;
 }
 
-@media only screen and (max-width: 114px) {
-
-  background-color: rgb(54, 54, 54);
-
+@media screen and (max-width: 768px) {
+  .background > h1 {
+    display: none;
+  }
+  .health {
+    display:none;
+  }
+  .PatientsCare {
+    margin-top: -40px;
+  }
+  .signature {
+    font-size: 0.5em;
+    padding: 30px 20px 10px 0;
+  }
 }

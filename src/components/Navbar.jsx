@@ -49,8 +49,10 @@ class Navbar extends Component {
     return ( 
       <nav className="nav-style">
         <Link to='/' style={{ textDecoration: 'none' }}><img className="logo" src="/images/logo.png" /></Link>
-        { this.state.sideBar ? sideBar : null }
-        <img className="menu" src="/images/menu.png" onClick={() => this.toogleSidebar()} />
+        <div className="menu-hamburger">
+          { this.state.sideBar ? sideBar : null }
+          <img className="menu" src="/images/menu.png" onClick={() => this.toogleSidebar()} />
+        </div>
       </nav>
     );
   }
