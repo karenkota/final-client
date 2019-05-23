@@ -53,7 +53,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:5003/api/medicalRecorder")
+    axios.get ( `${process.env.REACT_APP_API_URL}/medicalRecorder`, {withCredentials: true})
 		.then(res => {
 			this.setState({patientList: res.data}, () => {
 			})

@@ -38,7 +38,7 @@ class Cards extends Component {
   }
 
   componentDidMount() {
-		axios.get(`http://localhost:5003/api/medicalRecorder/${this.props.computedMatch.params.id}`)
+    axios.get ( `${process.env.REACT_APP_API_URL}/medicalRecorder/${this.props.computedMatch.params.id}`, {withCredentials: true})
 		.then(res => {
       const { fullname, age, genere, typeblood, cpf, rg, email, medicalagreement, phone, adress, chronicdiseases, familiardiseases, medicaltreatments, description, medicines, upload } = res.data;
 			this.setState({

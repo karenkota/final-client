@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const service = axios.create({
-  baseURL: 'http://localhost:5003/api',
-  // withCredentials: true // => you might need this when having the users in the app 
+  baseURL: (`${process.env.REACT_APP_API_URL}`),
+  withCredentials: true
 });
 
 const errorHandler = err => {
